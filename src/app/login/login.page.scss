@@ -1,0 +1,47 @@
+.login {
+    header {
+        .logo {
+            background-image: url("../../assets/img/símbolo-logo-icon-design-de-la-sociedad-del-empleo-121548628.jpg");
+            height: 200px;
+            width: 200px;
+            background-position: center;
+            background-size: contain;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 15px;
+        }
+    }
+    
+    .box-contenedor {
+        padding: 15px;
+        max-width: 360px;
+        width: 100%;
+        margin: auto;
+    
+        .form-floating {
+            label {
+                color: black;
+            }
+        }
+
+        h3 {
+            color: gray;
+            font-size: 1em;
+        }
+    
+        .btn-sec{
+            background: white;
+            color: #007fef;
+            border-color: #007fef;
+        }
+    
+        .link-box{
+            margin: 15px;
+            text-align: center;
+        }
+
+    }
+}

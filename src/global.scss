@@ -24,3 +24,12 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+button {
+    width: 100% !important;
+    margin-top: 5px !important;
+}
+ion-content {
+    background-color: white !important;
+}
