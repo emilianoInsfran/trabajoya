@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form action="" class="box-contenedor">
+    <h3>Oficios</h3>
+
+    <label for="validationTagsClear" class="form-label">Tags (allow clear)</label>
+    <select class="form-select" id="validationTagsClear" name="tagsClear[]" multiple data-allow-clear="true">
+      <option selected disabled hidden value="">Choose a tag...</option>
+      <option value="1" selected="selected">Apple</option>
+      <option value="2">Banana</option>
+      <option value="3">Orange</option>
+    </select>
+    <div class="invalid-feedback">Please select a valid tag.</div>
+
+    <h3>Información</h3>
+  
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" >
+      <label for="floatingNombre">Nombre</label>
+    </div>
+  
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingApellido"placeholder="Apellido">
+      <label for="floatingApellido">Apellido</label>
+    </div>
+    
+    <h3>Ubicación</h3>
+  
+    <h3>Datos de Contacto</h3>
+    <div class="form-floating">
+      <input type="tel" class="form-control" id="floatingTel" placeholder="Telefono: 12345678">
+      <label for="floatingTel">Telefono Fijo</label>
+    </div>
+  
+    <div class="form-floating">
+      <input type="tel" class="form-control" id="floatingCelular" placeholder="Celular: 1112345678">
+      <label for="floatingCelular">Celular</label>
+    </div>
+  
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingEmail" placeholder="Email: ejemplo@correo.com">
+      <label for="floatingEmail">Email</label>
+    </div>
+  </form>
+
+
+
+</ion-content>

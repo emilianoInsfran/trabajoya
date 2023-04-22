@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>¿Que servicios necesita?</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <form class="box-contenedor">
+    <ion-list [inset]="true" class="lista-oficios">
+      <ion-item [button]="true" [detail]="false" id="select-fruits">
+        <ion-label>Oficios</ion-label>
+        <div slot="end" id="selected-fruits">{{ selectedFruitsText }}</div>
+      </ion-item>
+    </ion-list>
+  
+    <div class="form-floating text-area">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+      <label for="floatingTextarea2">Descripción del Trabajo</label>
+    </div>
+  
+    <h3>Ubicación</h3>
+  
+    <button type="button" class="btn btn-primary" (click)="buscarEmpleado()" >Buscar</button>
+  </form>
+
+  <ion-modal trigger="select-fruits" #modal>
+    <ng-template>
+       <app-oficios
+        class="ion-page"
+        title="Favorite Fruits"
+        [items]="fruits"
+        [selectedItems]="selectedFruits"
+        (selectionChange)="fruitSelectionChanged($event)"
+        (selectionCancel)="modal.dismiss()"
+      ></app-oficios> 
+  
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
+
+
+
+<!-- <app-oficios></app-oficios> -->

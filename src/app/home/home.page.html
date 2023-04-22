@@ -1,9 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <ion-title>Notificaciones de Trabajo</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="notificaciones">
+
+  <ion-card *ngFor="let solicitarTrabajo of trabajos; let i= index">
+    <ion-card-header>
+      <ion-card-title>{{solicitarTrabajo.tituloOficio}}</ion-card-title>
+      <ion-card-subtitle><span>Ubicación:</span> {{solicitarTrabajo.ubicacionTrabajo}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h4><span>Solicitante: </span> {{solicitarTrabajo.nombreSolicitante}} {{solicitarTrabajo.apellidoSolicitante}}</h4>
+      <span>Descripción: </span>{{solicitarTrabajo.descripcionOficio}} - {{solicitarTrabajo.fechaPedido}}
+    </ion-card-content>
+  
+    <ion-button fill="clear" (click)="aceptarTrabajo()">Aceptar</ion-button>
+    <ion-button fill="clear" (click)="closeNotification()">Cancelar</ion-button>
+  </ion-card>
 
 </ion-content>
+
+
+
+
