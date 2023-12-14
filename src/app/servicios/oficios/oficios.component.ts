@@ -73,13 +73,15 @@ export class OficiosComponent implements OnInit {
   }
   
   checkboxChange(ev:any) {
+    console.log("cambio seleccionado: ",ev.detail);
     const { checked, value } = ev.detail;
-    
     if (checked) {
+      this.workingSelectedValues = [];
       this.workingSelectedValues = [
         ...this.workingSelectedValues,
         value
       ]
+      console.log("Array de oficios seleccionados: ",this.workingSelectedValues)
     } else {
       this.workingSelectedValues = this.workingSelectedValues.filter(item => item !== value);
     }

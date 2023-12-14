@@ -3,3 +3,22 @@
         padding-left: 10px;
     }
 }
+
+.content-header-oficios{
+    ion-icon {
+        font-size: 25px !important;
+    }
+
+    ion-title {
+        text-align: center;
+    }
+    ion-searchbar {
+        /* overall styles here */
+        .searchbar-clear-icon.sc-ion-searchbar-md {
+            --position: absolute !important;
+            --right: 0 !important;
+            --top: -5px !important;
+            --font-size: 25px !important;
+        }
+    }
+}       

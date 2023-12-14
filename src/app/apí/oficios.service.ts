@@ -13,4 +13,8 @@ export class OficiosService {
   getLocalData(){
     return this.http.get("../../assets/listaOficios/oficios.json");
   }
+  
+  getLocalDataResultadoBusqueda(){
+    return this.http.get("../../assets/listaResultadoOficios/resultadoBusqueda.json");
+  }
 }

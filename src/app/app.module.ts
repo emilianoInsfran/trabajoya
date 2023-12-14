@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-
+//recorda que cada componente tiene su modulo por ejemplo el ReactiveFormsModule lo agregue en perfil pero seguramente si creo otro componente lo agregare ahí y no aca
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],

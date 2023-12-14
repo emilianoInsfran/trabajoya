@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { TypeaheadComponent } from './typeahead.component';
+import { BusquedaComponent } from './busqueda.component';
 
-describe('TypeaheadComponent', () => {
-  let component: TypeaheadComponent;
-  let fixture: ComponentFixture<TypeaheadComponent>;
+describe('BusquedaComponent', () => {
+  let component: BusquedaComponent;
+  let fixture: ComponentFixture<BusquedaComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TypeaheadComponent ],
+      declarations: [ BusquedaComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TypeaheadComponent);
+    fixture = TestBed.createComponent(BusquedaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

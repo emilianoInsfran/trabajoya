@@ -1,0 +1,21 @@
+
+  <ion-card *ngFor="let trabajador of arrayListaResultadoTrabajador; let i= index" class="resultado-busqueda">
+
+    <ion-item>
+      <ion-label>{{trabajador.nombre}} {{trabajador.apellido}} </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Edad: {{trabajador.edad}} </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ubicación: {{trabajador.location}} </ion-label>
+    </ion-item>
+
+    <ion-button  target="_blank" [href]="'https://api.whatsapp.com/send/?phone=+549'+trabajador.celular+'&amp;text=Hola '+trabajador.nombre+' ¿como estas? Encontre tu perfil en trabajoYa y quiero contratar tus servicios ¿podemos hablar?'"><ion-icon name="logo-whatsapp" ></ion-icon><span>{{trabajador.celular}}</span> </ion-button>
+    <!-- <ion-button  target="_blank" [href]="'https://wa.me/+549'">test2 </ion-button> -->
+    <!-- <ion-button *ngIf="isIOS" data-href="{{'whatsapp://send?phone=+549'+trabajador.celular+'&amp;text=Hola '+trabajador.nombre+' quiero contratar tus servicios ¿podemos hablar?'}}"><ion-icon name="logo-whatsapp"></ion-icon><span>{{trabajador.celular}}</span> </ion-button> -->
+    <ion-button data-href="{{'tel:'+trabajador.telefono}}" (click)="call()"><ion-icon name="call-outline" ></ion-icon><span>{{trabajador.telefono}}</span></ion-button>
+    <ion-button  href="mailto:{{trabajador.email}}"><ion-icon name="mail-outline" ></ion-icon><span>{{trabajador.email}}</span></ion-button>
+
+   </ion-card>
+

@@ -1,44 +1,72 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>¿Que servicios necesita?</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content color="light">
-
-  <form class="box-contenedor">
-    <ion-list [inset]="true" class="lista-oficios">
-      <ion-item [button]="true" [detail]="false" id="select-fruits">
-        <ion-label>Oficios</ion-label>
-        <div slot="end" id="selected-fruits">{{ selectedFruitsText }}</div>
-      </ion-item>
-    </ion-list>
+<div class="ion-page">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>¿Que servicios necesita?</ion-title>
+    </ion-toolbar>
+  </ion-header>
   
-    <div class="form-floating text-area">
-      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-      <label for="floatingTextarea2">Descripción del Trabajo</label>
-    </div>
+  <ion-content color="light">
   
-    <h3>Ubicación</h3>
+    <form class="box-contenedor">
+      <ion-list [inset]="true" class="lista-oficios">
+        <ion-item [button]="true" [detail]="false" id="select-fruits">
+          <ion-label>Oficios</ion-label>
+          <div slot="end" id="selected-fruits">{{ selectedFruitsText }}</div>
+        </ion-item>
+      </ion-list>
+    
+      <div class="form-floating text-area">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">Descripción del Trabajo</label>
+      </div>
+    
+      <h3>Ubicación</h3>
+    
+      <button type="button" class="btn btn-primary" (click)="buscarEmpleado()" >Buscar</button>
+      <!-- 
+       <section class="atencion">
+        <h3>ASISTENCIA MÉDICA</h3>
+        <button href="https://api.whatsapp.com/send/?phone=+549" (click)="call()">watsapp</button>
+        <ion-button  [href]="'https://api.whatsapp.com/send/?phone=+549'"><span>wqeqwewqe</span> </ion-button>
+        <ion-button  data-href="{{'https://api.whatsapp.com/send/?phone=+5491148729100'}}" ><span>11.4872.9100</span> </ion-button>
+        <ion-button  data-href="whatsapp://send?phone=+5491148729100" class="osde-button osde-button-sin-relleno osde-button-relleno-whatsapp" ><ion-icon src="../../../assets/img/whatsapp_verde.svg"></ion-icon><span>11.4872.9100</span> </ion-button>
+        <ion-button data-href="tel:08108887788" class="osde-button osde-button-sin-relleno osde-button-asistencia-medica" ><ion-icon src="../../../assets/img/telefono_gris.svg"></ion-icon><span>0810.888.7788</span></ion-button>
+        <ion-button data-href="tel:08109996300" class="osde-button osde-button-sin-relleno osde-button-asistencia-medica" ><ion-icon src="../../../assets/img/telefono_gris.svg"></ion-icon><span>0810.999.6300</span></ion-button>
+      </section> -->
   
-    <button type="button" class="btn btn-primary" (click)="buscarEmpleado()" >Buscar</button>
-  </form>
+    </form>
+  
+    <!-- busqueda de oficios -->
+    <ion-modal trigger="select-fruits" #modal  >
+      <ng-template>
+         <app-oficios
+          class="ion-page"
+          title="Lista de Oficios"
+          [items]="fruits"
+          [selectedItems]="selectedFruits"
+          (selectionChange)="fruitSelectionChanged($event)"
+          (selectionCancel)="modal.dismiss()"
+        ></app-oficios> 
+    
+      </ng-template>
+    </ion-modal>
+  
+    <!-- modal de resultado de busqueda -->
+    
+    <ion-modal #modal2 [isOpen]="modalService.getOpenModal()" >
+      <ng-template>
+        <app-busqueda 
+          class="ion-page"
+          [arrayListaResultado]="resultadoBusqueda"
+          (cerrarModalBusqueda)="modal2.dismiss()"
+        ></app-busqueda>
+      </ng-template>
+    </ion-modal>
+  
+  </ion-content>
 
-  <ion-modal trigger="select-fruits" #modal>
-    <ng-template>
-       <app-oficios
-        class="ion-page"
-        title="Favorite Fruits"
-        [items]="fruits"
-        [selectedItems]="selectedFruits"
-        (selectionChange)="fruitSelectionChanged($event)"
-        (selectionCancel)="modal.dismiss()"
-      ></app-oficios> 
-  
-    </ng-template>
-  </ion-modal>
+</div>
 
-</ion-content>
 
 
 
