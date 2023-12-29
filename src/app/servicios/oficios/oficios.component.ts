@@ -8,7 +8,6 @@ import { Item } from '../types';
   styleUrls: ['./oficios.component.scss'],
 })
 
-
 export class OficiosComponent implements OnInit {
 
   @Input() items: Item[] = [];
@@ -24,6 +23,9 @@ export class OficiosComponent implements OnInit {
   ngOnInit() {
     this.filteredItems = [...this.items];
     this.workingSelectedValues = [...this.selectedItems];
+
+    console.log("filteredItems ",this.filteredItems)
+    console.log("workingSelectedValues",this.workingSelectedValues);
   }
   
   trackItems(index: number, item: Item) {
