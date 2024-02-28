@@ -1,0 +1,33 @@
+.pedidos {
+    .lista-oficios {
+        margin: 0;
+        margin-bottom: 10px;
+        border: 1px solid grey;
+        border-radius: 80px;
+    }
+
+    .text-area{
+        margin-bottom: 10px;
+    }
+    
+    .custom-button:focus {
+        box-shadow: none; /* Elimina la sombra al hacer foco */
+    }
+    
+    .custom-button:active {
+        background-color: #092032; /* Cambia el color cuando se presiona */
+    }
+
+    .pedidos-img {
+        background-image: url("../../../assets/img/pedidos.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        margin: auto;
+        height: 400px;
+        width: 100%;
+        
+    }
+}
+
+

@@ -1,5 +1,5 @@
 import { Component, OnInit,Input, Output } from '@angular/core';
-import { ObjResultadoBusqueda } from '../../servicios/types'
+import { ObjResultadoBusqueda } from '../../pages/pedidos/types'
 import {  Platform } from '@ionic/angular';
 
 @Component({

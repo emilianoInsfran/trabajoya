@@ -1,0 +1,30 @@
+.box-contenedor {
+    input {
+        margin-bottom: 10px;
+    }
+}
+
+.perfil {
+    ion-icon {
+        position: relative;
+        top: 16px;
+    }
+    
+    h3 {
+        margin-top: 20px;
+    }
+
+    .box-con-oficio {
+        ion-icon {
+            position: relative;
+            top: 0px;
+            font-size: 25px;
+        }
+        ion-button {
+            --color: red; // Cambia el color del botón de eliminar según tus preferencias
+        }
+    }
+}
+
+
+

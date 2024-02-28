@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tus Servicios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="box-contenedor servicios">
+    <ion-list>
+
+      <!-- <ion-list [inset]="true" class="lista-oficios">
+        <ion-item [button]="true" [detail]="false" id="select-oficios" button color="primary">
+          <ion-label>{{showOficios? 'Agregar más oficios' : 'Agregar oficio'}}</ion-label>
+        </ion-item>
+      </ion-list> -->
+
+      <div class="box-sin-oficio" *ngIf="!showOficios" >
+
+        <div class="warning-message">
+          <ion-text>
+            <ion-icon name="warning-outline"></ion-icon>
+            <span>Aún no tienes oficios agregados!</span>
+          </ion-text>
+        </div>
+
+      </div>
+
+      <div class="box-con-oficio" *ngIf="showOficios">
+        <ion-item *ngFor="let oficio of arrayOficiosSeleccionados">
+          {{ oficio?.nombre }}
+          <ion-button slot="end" fill="clear" (click)="eliminarTag(oficio)" *ngIf="hideEliminarOficio">
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <ion-item>
+          <label for="acceptTerms" class="form-check-label" >No aparecer en los resultados de búsqueda</label>
+          <input
+            type="checkbox"
+            class="form-check-input"
+          />
+        </ion-item>
+      </div>
+
+    </ion-list>
+  </div>
+
+  <ion-modal trigger="select-oficios" #modalOficios  >
+    <ng-template>
+       <app-oficios
+        class="ion-page"
+        title="Lista de Oficios"
+        [items]="fruits"
+        [selectedItems]="selectedFruits"
+        (selectionChange)="fruitSelectionChanged($event)"
+        (selectionCancel)="modalOficios.dismiss()"
+        page="servicios"
+      ></app-oficios> 
+    </ng-template>
+  </ion-modal>
+       
+</ion-content>
+
+<ion-footer>
+  <div *ngIf="showOficios">
+    <div class="box-btn-agregar-oficios" *ngIf="!hideEliminarOficio">
+      <button type="button" class="btn btn-primary" (click)="editarOficios()">
+        <ion-icon name="create-outline"></ion-icon> Editar oficios
+      </button>
+    </div>
+  
+    <button type="button" class="btn btn-primary" (click)="setOficiosEditados()" *ngIf="hideEliminarOficio">
+      <ion-icon name="checkmark-outline"></ion-icon> Guardar
+    </button>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="openModal()">
+    <ion-icon name="add-circle-outline"></ion-icon> {{showOficios? 'Agregar más oficios' : 'Agregar oficio'}}
+  </button>
+</ion-footer>

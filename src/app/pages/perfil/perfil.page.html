@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar> 
+    <ion-title>{{datosPerfilUsuario.getEditarPerfil() ? "Editar Perfil" : "Perfil"}}</ion-title>
+    <ion-buttons slot="end"  *ngIf="!datosPerfilUsuario.getEditarPerfil()">
+      <ion-button (click)="editarPerfil()">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="register-form">
+
+    <div *ngIf="!datosPerfilUsuario.getEditarPerfil()">
+      <app-datos-perfil></app-datos-perfil>
+    </div>
+
+    <form class="box-contenedor perfil"  [formGroup]="perfil" (ngSubmit)="onSubmit()"  *ngIf="datosPerfilUsuario.getEditarPerfil()">
+        <ion-list>
+          
+          <h3>Información</h3>
+          <div class="form-group">
+            <ion-item>
+              <ion-label position="floating">Nombre </ion-label>
+
+              <ion-input type="text" placeholder="Nombre"  formControlName="nombre"  [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }">
+              </ion-input>
+
+              <ion-icon name="person-outline" slot="end" ></ion-icon>
+
+              <div *ngIf="submitted && f['nombre'].errors" class="invalid-feedback">
+                <div *ngIf="f['nombre'].errors['required']">Nombre obligatorio!</div>
+                <div *ngIf="f['nombre'].errors['minlength']">No menos de 3 letras</div>
+                <div *ngIf="f['nombre'].errors['maxlength']">No mas de 20 letras</div>
+              </div>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Apellido</ion-label>
+              <ion-input type="text" placeholder="Apellido" formControlName="apellido" [ngClass]="{ 'is-invalid': submitted && f['apellido'].errors }"></ion-input>
+              <ion-icon name="person-outline" slot="end"  ></ion-icon>
+
+              <div *ngIf="submitted && f['apellido'].errors" class="invalid-feedback">
+                <div *ngIf="f['apellido'].errors['required']">Apellido obligatorio!</div>
+                <div *ngIf="f['apellido'].errors['minlength']">No menos de 6 letras</div>
+                <div *ngIf="f['apellido'].errors['maxlength']">No mas de 20 letras</div>
+              </div>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Edad</ion-label>
+              <ion-input type="number" placeholder="Edad" formControlName="edad" [ngClass]="{ 'is-invalid': submitted && f['edad'].errors }"></ion-input>
+              <ion-icon name="calendar-outline" slot="end" ></ion-icon>
+
+              <div *ngIf="submitted && f['edad'].errors" class="invalid-feedback">
+                <div *ngIf="f['edad'].errors['required']">Edad obligatorio!</div>
+                <div *ngIf="f['edad'].errors['minlength']">No menos de 1 número</div>
+                <div *ngIf="f['edad'].errors['maxlength']">No mas de 2 números</div>
+                <div *ngIf="f['edad'].errors['min']">No menos de 1 números</div>
+                <div *ngIf="f['edad'].errors['max']">No mas de 2 números</div>
+              </div>
+            </ion-item>
+          </div>
+
+          <h3>Datos de Contacto</h3>
+          
+          <ion-item>
+            <ion-label position="floating">Telefono Fijo</ion-label>
+            <ion-input  type="tel" placeholder="00000000"  formControlName="telfijo" [ngClass]="{ 'is-invalid': submitted && f['telfijo'].errors }"></ion-input>
+            <ion-icon name="call-outline" slot="end"></ion-icon>
+  
+            <div *ngIf="submitted && f['telfijo'].errors" class="invalid-feedback">
+              <div *ngIf="f['telfijo'].errors['minlength']">No menos de 8 número</div>
+              <div *ngIf="f['telfijo'].errors['maxlength']">No mas de 8 números</div>
+              <div *ngIf="f['telfijo'].errors['min']">No menos de 8 números</div>
+              <div *ngIf="f['telfijo'].errors['max']">No mas de 8 números</div>
+            </div>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label position="floating">Celular</ion-label>
+            <ion-input  type="tel" placeholder="1100000000" formControlName="celular" [ngClass]="{ 'is-invalid': submitted && f['celular'].errors }"></ion-input>
+            <ion-icon name="phone-portrait-outline" slot="end"></ion-icon>
+  
+            <div *ngIf="submitted && f['celular'].errors" class="invalid-feedback">
+              <div *ngIf="f['celular'].errors['required']">Celular obligatorio!</div>
+              <div *ngIf="f['celular'].errors['minlength']">No menos de 10 número</div>
+              <div *ngIf="f['celular'].errors['maxlength']">No mas de 10 números</div>
+              <div *ngIf="f['celular'].errors['min']">No menos de 10 números</div>
+              <div *ngIf="f['celular'].errors['max']">No mas de 10 números</div>
+            </div>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input  type="email" placeholder="email@domain.com" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"></ion-input>
+            <ion-icon name="mail-outline" slot="end"></ion-icon>
+  
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors['required']">Email obligatorio!</div>
+              <div *ngIf="f['email'].errors['email']">Email invalido</div>
+            </div>
+          </ion-item>
+        
+        </ion-list>
+    </form>
+
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <div *ngIf="!datosPerfilUsuario.getEditarPerfil()">
+    <button type="button" class="btn btn-primary" (click)="navigate('')">
+      <ion-icon name="exit-outline"></ion-icon> Salir
+    </button>
+  </div>
+  <div *ngIf="datosPerfilUsuario.getEditarPerfil()">
+    <button type="button" class="btn btn-primary" (click)="onSubmit()">
+      <ion-icon name="checkmark-outline"></ion-icon> Guardar
+    </button>
+  </div>
+</ion-footer>

@@ -5,10 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class OficiosService {
-
-  constructor(private http: HttpClient) {
-
-  }
+  datosPerfil:any={}
+  constructor(private http: HttpClient) {}
 
   getLocalData(){
     return this.http.get("../../assets/listaOficios/oficios.json");
@@ -16,5 +14,17 @@ export class OficiosService {
   
   getLocalDataResultadoBusqueda(){
     return this.http.get("../../assets/listaResultadoOficios/resultadoBusqueda.json");
+  }
+
+  getLocalDataPerfil(){
+    return this.http.get("../../assets/perfil/perfil.json")
+  }
+
+  setDataPerfil(datosPerfil:any){
+    this.datosPerfil = datosPerfil;
+  }
+
+  getDataPerfil(){
+    return this.datosPerfil;
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter,OnInit } from '@angular/core';
-import { ObjResultadoBusqueda } from '../../servicios/types'
+import { ObjResultadoBusqueda } from '../../pages/pedidos/types'
 import { ModalService } from '../../../service/modal.service';
 
 @Component({

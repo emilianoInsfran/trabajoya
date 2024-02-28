@@ -1,0 +1,46 @@
+.box-contenedor.servicios{
+    .lista-oficios {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .text-area{
+        margin-bottom: 10px;
+    } 
+
+    .box-con-oficio{
+        ion-icon {
+            position: relative;
+            top: 0px;
+            font-size: 25px;
+        }
+        ion-button {
+         --color: red; // Cambia el color del botón de eliminar según tus preferencias
+        }
+    }
+
+    .warning-message {
+        background-color: #ffc107; /* Fondo amarillo */
+        padding: 10px; /* Ajusta el relleno según sea necesario */
+        border-radius: 5px; /* Borde redondeado */
+        display: flex; /* Para alinear el icono y el texto horizontalmente */
+        align-items: center; /* Para centrar verticalmente el contenido */
+        color: white;
+        text-align: center;
+
+        ion-text {
+            width: 100%;
+        }
+
+        span {
+            position: relative;
+            top: -5px;
+            font-size: 1em;
+        }
+    }
+      
+    .warning-message ion-icon {
+        margin-right: 8px; /* Ajusta el espacio entre el icono y el texto */
+        font-size: 24px; /* Tamaño del icono */
+    }
+}

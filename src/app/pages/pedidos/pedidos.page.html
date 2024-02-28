@@ -1,0 +1,61 @@
+<div class="ion-page">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Hola! ¿Qué servicio buscas?</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="pedidos">
+  
+    <!-- <form class="box-contenedor pedidos">
+      <ion-list [inset]="true" class="lista-oficios">
+        <ion-item [button]="true" [detail]="false" id="select-fruits" class="custom-button">
+          <ion-label>Oficios</ion-label>
+          <div slot="end" id="selected-fruits">{{ selectedFruitsText }}</div>
+        </ion-item>
+      </ion-list>
+
+      <div class="pedidos-img"></div>
+
+      <button type="button" class="btn btn-primary" (click)="buscarEmpleado()" >Buscar</button> TODO:aplicarlo cuando selecciona la tilde en el resultado de busqueda
+    </form> -->
+
+    <div class="pedidos-img"></div>
+  
+    <!-- busqueda de oficios -->
+
+    <ion-modal trigger="select-fruits" #modal  >
+      <ng-template>
+         <app-oficios
+          class="ion-page"
+          title="Lista de Oficios"
+          [items]="fruits"
+          [selectedItems]="selectedFruits"
+          (selectionChange)="fruitSelectionChanged($event)"
+          (selectionCancel)="modal.dismiss()"
+          page="pedidos"
+        ></app-oficios> 
+      </ng-template>
+    </ion-modal> 
+  
+    <!-- modal de resultado de busqueda -->
+    
+    <ion-modal #modal2 [isOpen]="modalService.getOpenModal()" >
+      <ng-template>
+        <app-busqueda 
+          class="ion-page"
+          [arrayListaResultado]="resultadoBusqueda"
+          (cerrarModalBusqueda)="modal2.dismiss()"
+        ></app-busqueda>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
+  
+  <ion-footer>
+    <button type="button" class="btn btn-primary" (click)="openModal()">
+      <ion-icon name="search"></ion-icon> Buscar servicio
+    </button>
+  </ion-footer>
+
+</div>
+<!-- <div slot="end" id="selected-fruits">{{ selectedFruitsText }}</div> -->
