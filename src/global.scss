@@ -26,6 +26,7 @@
 @import "~@ionic/angular/css/flex-utils.css";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+
 body {
   font-family: 'Roboto Light', sans-serif;
   font-weight: 300;
@@ -118,6 +119,11 @@ ion-toolbar {
   }
 }
 
+
+.searchbar-search-icon.sc-ion-searchbar-md, .searchbar-cancel-button.sc-ion-searchbar-md {
+  color: grey !important;
+}
+
 //FOOTER  
 
 ion-footer {
@@ -142,3 +148,29 @@ ion-footer.footer-md {
   cursor: pointer; /* Cambiar a cursor de mano */
   height: 40px !important;
 }
+
+button {
+  border-radius: 50px;
+  background: #0c2840;
+  border-color: #0c2840;
+  height: 45px !important;
+}
+
+.custom-button {
+  border-radius: 50px;
+  background: #0c2840;
+  border-color: #0c2840;
+  height: 45px !important;
+  color: white; /* Color del texto */
+  font-size: 1em; /* Tamaño del texto */
+  padding: 0 20px; /* Espaciado interno horizontal */
+  display: flex; /* Alineación del contenido */
+  align-items: center; /* Alineación vertical del contenido */
+  justify-content: center; /* Centrar horizontalmente el contenido */
+}
+
+.custom-button ion-icon {
+  margin-right: 10px; /* Espacio entre el icono y el texto */
+}
+
+

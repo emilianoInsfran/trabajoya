@@ -1,6 +1,6 @@
 export interface Item {
-    nombre: string;
-    value: string;
+    nombre: string,
+    value: string,
 };
 
 export interface ObjResultadoBusqueda {

@@ -1,10 +1,11 @@
 <ion-content class="login">
       <header>
           <div class="logo"></div>
-          <h2>TrabajoYA</h2>
       </header>
       <section class="box-contenedor">
-        <h3>Hola! entra y encontra lo que necesites</h3>
+        <h2>¡Descubre una app innovadora! </h2>
+        <h3>Donde puedes encontrar, contratar y ofrecer una amplia gama de servicios profesionales de manera rápida y eficiente!</h3>
+
         <div class="form-floating mb-3">
           <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
           <label for="floatingInput">Email address</label>
@@ -18,12 +19,12 @@
           <hr>
         </div>
   
-        <button type="button" class="btn btn-primary" (click)="gotoPage('tabs')" >Entrar</button>
-        <button type="button" class="btn btn-primary">Entrar con google</button>
+        <button type="button" class="custom-button" (click)="gotoPage('tabs')" >Entrar</button>
+        <!-- <button type="button" class="btn btn-primary">Entrar con google</button> -->
   
         <div class="link-box top"><a>¿Olvidaste tu contraseña?</a> </div>
   
-        <button type="button" class="btn btn-light btn-sec" (click)="gotoPage('registro')">Registrate</button>
+        <button type="button" class="custom-button" (click)="gotoPage('registro')">Registrate</button>
 
       </section>
 

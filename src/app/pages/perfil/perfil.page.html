@@ -13,7 +13,9 @@
   <div class="register-form">
 
     <div *ngIf="!datosPerfilUsuario.getEditarPerfil()">
-      <app-datos-perfil></app-datos-perfil>
+      <app-datos-perfil
+        [objDatosPerfil]="datosPerfilUsuario.getDataPerfil()"
+      ></app-datos-perfil>
     </div>
 
     <form class="box-contenedor perfil"  [formGroup]="perfil" (ngSubmit)="onSubmit()"  *ngIf="datosPerfilUsuario.getEditarPerfil()">
@@ -104,20 +106,28 @@
           </ion-item>
         
         </ion-list>
+
+        <ion-item class="check-busqueda">
+          <div class="text-column">
+            <label for="acceptTerms" class="form-check-label">No aparecer en los resultados de búsqueda</label>
+          </div>
+          <div class="input-column">
+            <input type="checkbox" class="form-check-input-resultados-busqueda"/>
+          </div>
+        </ion-item>
     </form>
 
   </div>
 </ion-content>
 
-
 <ion-footer>
   <div *ngIf="!datosPerfilUsuario.getEditarPerfil()">
-    <button type="button" class="btn btn-primary" (click)="navigate('')">
+    <button type="button" class="custom-button" (click)="navigate('')">
       <ion-icon name="exit-outline"></ion-icon> Salir
     </button>
   </div>
   <div *ngIf="datosPerfilUsuario.getEditarPerfil()">
-    <button type="button" class="btn btn-primary" (click)="onSubmit()">
+    <button type="button" class="custom-button" (click)="onSubmit()">
       <ion-icon name="checkmark-outline"></ion-icon> Guardar
     </button>
   </div>

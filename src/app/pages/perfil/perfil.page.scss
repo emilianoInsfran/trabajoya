@@ -1,3 +1,5 @@
+@import "../../../colores-app.scss";
+
 .box-contenedor {
     input {
         margin-bottom: 10px;
@@ -5,6 +7,8 @@
 }
 
 .perfil {
+    color: $primary-color;
+
     ion-icon {
         position: relative;
         top: 16px;
@@ -14,15 +18,27 @@
         margin-top: 20px;
     }
 
-    .box-con-oficio {
-        ion-icon {
-            position: relative;
-            top: 0px;
-            font-size: 25px;
+    .check-busqueda{
+        margin-bottom: 5%;
+        
+        ion-item {
+            display: flex;
         }
-        ion-button {
-            --color: red; // Cambia el color del botón de eliminar según tus preferencias
+        
+        .text-column {
+            flex: 1;
         }
+        
+        .input-column {
+            margin-left: 10px; /* Ajusta el margen según sea necesario */
+        }
+    }
+
+    .form-check-input-resultados-busqueda{
+        margin-bottom: 5px;
+        margin-left: 3%;
+        height: 22px;
+        width: 22px;
     }
 }
 

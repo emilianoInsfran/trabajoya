@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DatosPerfil } from '../../pages/perfil/types-perfil';
 
 @Component({
   selector: 'app-datos-perfil',
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./datos-perfil.component.scss'],
 })
 export class DatosPerfilComponent implements OnInit {
-
+  @Input() objDatosPerfil!: DatosPerfil;
+  
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("componente datos-perfil", this.objDatosPerfil)
+
+  }
 
 }

@@ -75,5 +75,4 @@ export class TrabajosPage implements OnInit {
     }]
     
   }
-
 }

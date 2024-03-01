@@ -1,3 +1,5 @@
+@import "../../../colores-app.scss";
+
 .pedidos {
     .lista-oficios {
         margin: 0;
@@ -11,11 +13,11 @@
     }
     
     .custom-button:focus {
-        box-shadow: none; /* Elimina la sombra al hacer foco */
+        box-shadow: none;
     }
     
     .custom-button:active {
-        background-color: #092032; /* Cambia el color cuando se presiona */
+        background-color: $primary-color; 
     }
 
     .pedidos-img {
@@ -24,7 +26,8 @@
         background-position: center;
         background-size: contain;
         margin: auto;
-        height: 400px;
+        height: 260px;
+        margin-top: 60%;
         width: 100%;
         
     }

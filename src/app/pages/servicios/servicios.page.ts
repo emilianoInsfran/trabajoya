@@ -17,7 +17,7 @@ export class ServiciosPage implements OnInit {
   canDismiss:boolean = false;
   isModalOpen:boolean = false;
   presentingElement:any;
-
+  slidingItem: boolean = true;
   
   constructor(private oficiosService: OficiosService, public modalService: ModalService) { }
 
@@ -49,7 +49,10 @@ export class ServiciosPage implements OnInit {
       this.arrayOficiosSeleccionados.splice(index, 1);
     }
     this.showMessageOtrosOficios();
-    if(this.arrayOficiosSeleccionados.length === 0) this.fruitSelectionChanged([])
+    if(this.arrayOficiosSeleccionados.length === 0) {
+      this.hideEliminarOficio = false;
+      this.fruitSelectionChanged([]);
+    }
   }
 
   editarOficios():void{
@@ -101,6 +104,15 @@ export class ServiciosPage implements OnInit {
     this.selectedFruitsText = this.formatData(this.selectedFruits);
     this.modalOficios.dismiss();
     this.showTagsOficios();
+  }
+
+
+  onDragStart() {
+    this.slidingItem = true;
+  }
+
+  onDragEnd() {
+    this.slidingItem = false;
   }
 
   //resultado de busqueda

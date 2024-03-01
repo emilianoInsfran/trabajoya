@@ -6,40 +6,26 @@
 
 <ion-content >
   <div class="box-contenedor servicios">
+
     <ion-list>
-
-      <!-- <ion-list [inset]="true" class="lista-oficios">
-        <ion-item [button]="true" [detail]="false" id="select-oficios" button color="primary">
-          <ion-label>{{showOficios? 'Agregar más oficios' : 'Agregar oficio'}}</ion-label>
-        </ion-item>
-      </ion-list> -->
-
       <div class="box-sin-oficio" *ngIf="!showOficios" >
-
-        <div class="warning-message">
-          <ion-text>
-            <ion-icon name="warning-outline"></ion-icon>
-            <span>Aún no tienes oficios agregados!</span>
-          </ion-text>
-        </div>
-
+        <app-warning></app-warning>
       </div>
 
       <div class="box-con-oficio" *ngIf="showOficios">
-        <ion-item *ngFor="let oficio of arrayOficiosSeleccionados">
-          {{ oficio?.nombre }}
-          <ion-button slot="end" fill="clear" (click)="eliminarTag(oficio)" *ngIf="hideEliminarOficio">
-            <ion-icon name="close-circle-outline"></ion-icon>
-          </ion-button>
-        </ion-item>
 
-        <ion-item>
-          <label for="acceptTerms" class="form-check-label" >No aparecer en los resultados de búsqueda</label>
-          <input
-            type="checkbox"
-            class="form-check-input"
-          />
-        </ion-item>
+        <ion-list>
+          <ion-item-sliding  *ngFor="let oficio of arrayOficiosSeleccionados" [disabled]="!hideEliminarOficio">
+            <ion-item>
+              {{ oficio?.nombre }}
+            </ion-item>
+            <ion-item-options side="start">
+              <ion-item-option color="danger" (click)="eliminarTag(oficio)">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
       </div>
 
     </ion-list>
@@ -64,16 +50,22 @@
 <ion-footer>
   <div *ngIf="showOficios">
     <div class="box-btn-agregar-oficios" *ngIf="!hideEliminarOficio">
-      <button type="button" class="btn btn-primary" (click)="editarOficios()">
-        <ion-icon name="create-outline"></ion-icon> Editar oficios
+      <button type="button" class="custom-button" (click)="editarOficios()">
+        <ion-icon name="trash"></ion-icon> Eliminar servicios
       </button>
     </div>
-  
-    <button type="button" class="btn btn-primary" (click)="setOficiosEditados()" *ngIf="hideEliminarOficio">
-      <ion-icon name="checkmark-outline"></ion-icon> Guardar
-    </button>
+    
+    <div *ngIf="hideEliminarOficio">
+      <app-info></app-info>
+
+      <button type="button" class="custom-button" (click)="setOficiosEditados()" >
+        <ion-icon name="checkmark-outline"></ion-icon> Guardar
+      </button>
+    </div>
+
   </div>
-  <button type="button" class="btn btn-primary" (click)="openModal()">
-    <ion-icon name="add-circle-outline"></ion-icon> {{showOficios? 'Agregar más oficios' : 'Agregar oficio'}}
+
+  <button type="button" class="custom-button" (click)="openModal()" *ngIf="!hideEliminarOficio ">
+     <ion-icon name="add-circle-outline"></ion-icon> {{showOficios? 'Agregar más servicios' : 'Agregar servicio'}}
   </button>
 </ion-footer>

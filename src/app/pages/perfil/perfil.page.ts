@@ -32,13 +32,14 @@ export class PerfilPage implements OnInit {
   getDatosPerfil(){
     const datosPerfil = this.datosPerfilUsuario.getDataPerfil();
     console.log("DATOS DE PERFIL: ",datosPerfil.perfil);
+    //Inicializa los datos del formulario
     this.perfil.setValue({
-      nombre: datosPerfil.perfil.nombre,
-      apellido: datosPerfil.perfil.apellido,
-      edad: datosPerfil.perfil.edad,
-      telfijo: datosPerfil.perfil.telFijo,
-      celular: datosPerfil.perfil.celular,
-      email: datosPerfil.perfil.email,
+      nombre: datosPerfil.nombre,
+      apellido: datosPerfil.apellido,
+      edad: datosPerfil.edad,
+      telfijo: datosPerfil.telFijo,
+      celular: datosPerfil.celular,
+      email: datosPerfil.email,
     });
 
     // this.deshabilitarCampos();

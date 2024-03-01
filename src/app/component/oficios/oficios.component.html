@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-button (click)="cancelChanges()" icon-only clear><ion-icon name="close-circle-outline"></ion-icon></ion-button>
     </ion-buttons>
-    <ion-title>Lista de Oficios</ion-title>
+    <ion-title>Lista de Servicios</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="confirmChanges()" icon-only clear><ion-icon name="checkmark-circle-outline"></ion-icon></ion-button>
     </ion-buttons> 
@@ -13,7 +13,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light" class="ion-padding box-list-oficios">
+<ion-content class="ion-padding box-list-oficios">
   <ion-list id="modal-list" [inset]="true">
     <ion-item *ngFor="let item of filteredItems; trackBy: trackItems">
       <ion-checkbox

@@ -16,7 +16,7 @@ export class DatosPerfilUsuario {
   }
 
   getDataPerfil(){
-    return this.datosPerfil;
+    return this.datosPerfil.perfil.usuario;
   }
 
   setEditarPerfil(editarPerfil:boolean){

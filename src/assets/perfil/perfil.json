@@ -1,12 +1,17 @@
 {"perfil" : 
     {
-        "id":1,
-        "nombre":"Lino Emiliano",
-        "apellido":"Insfran",
-        "edad":31,
-        "email":"emilianoinsfran@gmail.com",
-        "celular":1154112906,
-        "telFijo":12345678,
+    "usuario" : 
+        {
+            "id":1,
+            "nombre":"Lino Emiliano",
+            "apellido":"Insfran",
+            "edad":31,
+            "email":"emilianoinsfran@gmail.com",
+            "celular":1154112906,
+            "telFijo":12345678
+        }
+    },
+    "permisos": {
         "activoBusqueda":true,
         "activoPerfil":true,
         "TODO": "VER SI METER LOS OFICIOS EN ESTE SERVICIO (POR AHORA COMPLETAR PERFIL)"
