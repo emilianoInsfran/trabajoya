@@ -13,7 +13,6 @@ export class ResultadoBusquedaComponent implements OnInit {
 
   ngOnInit() {
     console.log("arrayListaResultadoTrabajador",this.arrayListaResultadoTrabajador);
-
   }
 
   get isIOS() {
@@ -25,6 +24,4 @@ export class ResultadoBusquedaComponent implements OnInit {
     let tel_number = '9870684933'
     window.open(`tel:${tel_number}`, '_system')
   }
-
-
 }

@@ -15,11 +15,12 @@
 
 <ion-content class="ion-padding box-list-oficios">
   <ion-list id="modal-list" [inset]="true">
-    <ion-item *ngFor="let item of filteredItems; trackBy: trackItems">
+    <ion-item *ngFor="let item of filteredItems; trackBy: trackItems"  >
       <ion-checkbox
         [value]="item.value" 
         [checked]="isChecked(item.value)"
         (ionChange)="checkboxChange($event)"
+        [disabled]="item.disabled"
       ></ion-checkbox><span class="lista-oficio">{{ item.nombre }}</span> 
     </ion-item>
   </ion-list>

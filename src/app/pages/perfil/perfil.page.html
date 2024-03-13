@@ -18,7 +18,7 @@
       ></app-datos-perfil>
     </div>
 
-    <form class="box-contenedor perfil"  [formGroup]="perfil" (ngSubmit)="onSubmit()"  *ngIf="datosPerfilUsuario.getEditarPerfil()">
+    <form class="box-contenedor perfil"  [formGroup]="perfil" (ngSubmit)="onSubmitFormPerfil()"  *ngIf="datosPerfilUsuario.getEditarPerfil()">
         <ion-list>
           
           <h3>Información</h3>
@@ -122,13 +122,13 @@
 
 <ion-footer>
   <div *ngIf="!datosPerfilUsuario.getEditarPerfil()">
-    <button type="button" class="custom-button" (click)="navigate('')">
+    <ion-button (click)="navigate('')">
       <ion-icon name="exit-outline"></ion-icon> Salir
-    </button>
+    </ion-button>
   </div>
   <div *ngIf="datosPerfilUsuario.getEditarPerfil()">
-    <button type="button" class="custom-button" (click)="onSubmit()">
-      <ion-icon name="checkmark-outline"></ion-icon> Guardar
-    </button>
+    <ion-button (click)="onSubmitFormPerfil()"  [disabled]="editSaveDisabledBtnPerfil">
+      <ion-icon name="checkmark-outline"></ion-icon>Guardar
+    </ion-button>
   </div>
 </ion-footer>

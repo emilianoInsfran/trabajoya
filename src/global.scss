@@ -156,21 +156,39 @@ button {
   height: 45px !important;
 }
 
-.custom-button {
+ion-button {
+  --background: #0c2840;
+  --border-color: #0c2840;
+  --color: white;
+  --border-radius: 50px;
+  --height: 45px;
+  --width: 100%;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --font-size: 1em;
+  --display: flex;
+  --align-items: center;
+  --justify-content: center;
   border-radius: 50px;
   background: #0c2840;
   border-color: #0c2840;
   height: 45px !important;
-  color: white; /* Color del texto */
-  font-size: 1em; /* Tamaño del texto */
-  padding: 0 20px; /* Espaciado interno horizontal */
-  display: flex; /* Alineación del contenido */
-  align-items: center; /* Alineación vertical del contenido */
-  justify-content: center; /* Centrar horizontalmente el contenido */
+  text-transform: none;
+  width: 100% !important;
 }
 
-.custom-button ion-icon {
-  margin-right: 10px; /* Espacio entre el icono y el texto */
+.custom-button-whatsapp {
+  --background: #32d951;
+  --border-color: #32d951;
 }
-
+.custom-button-tell {
+  --background: #0072b9;
+    --border-color: #0072b9;
+}
+.custom-button-email {
+  --background: #bc3728;
+  --border-color: #bc3728;
+}
 

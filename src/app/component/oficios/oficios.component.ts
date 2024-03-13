@@ -26,9 +26,22 @@ export class OficiosComponent implements OnInit {
     this.filteredItems = [...this.items];
     this.workingSelectedValues = [...this.selectedItems];
 
+    if(this.page !== 'pedidos') this.filtrarOficioSeleccionados(this.filteredItems);
+
     console.log("filteredItems ",this.filteredItems)
     console.log("workingSelectedValues",this.workingSelectedValues);
     console.log("page:", this.page);
+  }
+
+  filtrarOficioSeleccionados(filteredItems:any){
+  // Deshabilitar los elementos previamente seleccionados
+    this.filteredItems.forEach(item => {
+      if (this.isChecked(item.value))  {
+        item.disabled = true;
+      }else{
+        item.disabled = false;
+      }
+    });
   }
   
   trackItems(index: number, item: Item) {
@@ -41,6 +54,9 @@ export class OficiosComponent implements OnInit {
   
   confirmChanges() {
     this.selectionChange.emit(this.workingSelectedValues);
+    if(this.page === 'pedidos') {
+      console.log("Servicio seleccionado",this.workingSelectedValues);
+    }
   }
   
   searchbarInput(ev:any) {
@@ -73,8 +89,8 @@ export class OficiosComponent implements OnInit {
     }
   }
 
-  isChecked(value: string) {
-    return this.workingSelectedValues.find(item => item === value);
+  isChecked(value: string): boolean {
+    return !!this.workingSelectedValues.find(item => item === value);
   }
   
   checkboxChange(ev:any) {

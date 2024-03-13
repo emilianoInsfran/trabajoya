@@ -50,22 +50,22 @@
 <ion-footer>
   <div *ngIf="showOficios">
     <div class="box-btn-agregar-oficios" *ngIf="!hideEliminarOficio">
-      <button type="button" class="custom-button" (click)="editarOficios()">
+      <ion-button (click)="editarOficios()">
         <ion-icon name="trash"></ion-icon> Eliminar servicios
-      </button>
+      </ion-button>
     </div>
     
     <div *ngIf="hideEliminarOficio">
       <app-info></app-info>
 
-      <button type="button" class="custom-button" (click)="setOficiosEditados()" >
+      <ion-button (click)="setOficiosEditados()" >
         <ion-icon name="checkmark-outline"></ion-icon> Guardar
-      </button>
+      </ion-button>
     </div>
 
   </div>
 
-  <button type="button" class="custom-button" (click)="openModal()" *ngIf="!hideEliminarOficio ">
+  <ion-button (click)="openModal()" *ngIf="!hideEliminarOficio ">
      <ion-icon name="add-circle-outline"></ion-icon> {{showOficios? 'Agregar más servicios' : 'Agregar servicio'}}
-  </button>
+  </ion-button>
 </ion-footer>

@@ -14,7 +14,7 @@ import { SharedModuleOficiosComponent } from "../../shared/shared-oficios.module
     FormsModule,
     IonicModule,
     PedidosPageRoutingModule,
-    SharedModuleOficiosComponent
+    SharedModuleOficiosComponent,
   ],
   declarations: [PedidosPage,BusquedaComponent,ResultadoBusquedaComponent]
 })

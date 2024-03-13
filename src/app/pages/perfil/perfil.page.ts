@@ -20,13 +20,31 @@ export class PerfilPage implements OnInit {
     email: new FormControl(''),
   });
 
-  submitted:boolean = false;
+  submitted:boolean = true;
+  editSaveDisabledBtnPerfil:boolean = true;
+  getDataPerfilServiceInitial:any;
+
   constructor(private router: Router,private formBuilder: FormBuilder,public datosPerfilUsuario: DatosPerfilUsuario) {}
 
   ngOnInit() {
     this.setPerfilEditado();
     this.formularioVlidacion();
     this.getDatosPerfil();
+    this.valueChangesFormPerfil();
+  }
+
+  valueChangesFormPerfil(){
+    this.perfil.valueChanges.subscribe(changes => {
+      console.log('Se han detectado cambios en el formulario:', changes);
+      console.log('getDataPerfilServiceInitial:', this.getDataPerfilServiceInitial);
+      console.log('invalid:', this.perfil.invalid);
+        if(JSON.stringify(this.getDataPerfilServiceInitial) !== JSON.stringify(this.perfil.value) && !this.perfil.invalid){
+          console.log("El objeto es diferente!");
+          this.editSaveDisabledBtnPerfil = false;
+        }else{
+          this.editSaveDisabledBtnPerfil = true;
+        }
+    })
   }
 
   getDatosPerfil(){
@@ -34,15 +52,16 @@ export class PerfilPage implements OnInit {
     console.log("DATOS DE PERFIL: ",datosPerfil.perfil);
     //Inicializa los datos del formulario
     this.perfil.setValue({
-      nombre: datosPerfil.nombre,
       apellido: datosPerfil.apellido,
+      nombre: datosPerfil.nombre,
       edad: datosPerfil.edad,
-      telfijo: datosPerfil.telFijo,
       celular: datosPerfil.celular,
+      telfijo: datosPerfil.telFijo,
       email: datosPerfil.email,
     });
 
-    // this.deshabilitarCampos();
+    this.getDataPerfilServiceInitial = this.perfil.value
+
   }
 
   deshabilitarCampos() {
@@ -133,7 +152,7 @@ export class PerfilPage implements OnInit {
     return this.perfil.controls;
   }
 
-  onSubmit(): void {
+  onSubmitFormPerfil(): void {
     this.submitted = true;
 
     if (this.perfil.invalid) {
@@ -142,7 +161,7 @@ export class PerfilPage implements OnInit {
       this.setPerfilEditado();
     }
 
-    console.log(JSON.stringify(this.perfil.value, null, 2));
+    console.log("guardo los datos de perfil editado",JSON.stringify(this.perfil.value, null, 2));
   }
 
   onReset(): void {

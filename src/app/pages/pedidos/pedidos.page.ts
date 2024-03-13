@@ -85,7 +85,10 @@ export class PedidosPage implements OnInit {
   fruitSelectionChanged(fruits: string[]) {
     this.selectedFruits = fruits;
     this.selectedFruitsText = this.formatData(this.selectedFruits);
+    console.log("servicio seleccionado en pedidos: ",this.selectedFruitsText)//TODO: VER QUE DEVUELVA UN OBJETO CON EL ID O EL ID DIRECTAMENTE
     this.modal.dismiss();
+    //aca llamar al servicio de busqueda:
+    this.buscarEmpleado();
   }
 
   openModal() {

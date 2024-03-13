@@ -1,8 +1,11 @@
   <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="end">
-        <ion-button (click)="cerrarModal()">Cancelar</ion-button>
+      <ion-buttons slot="start">
+        <ion-button (click)="cerrarModal()" icon-only clear>
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
       </ion-buttons>
+      
       <ion-title>Resultado de Busqueda</ion-title>
       <!-- <ion-buttons slot="start">
         <ion-button (click)="confirmChanges()">Done</ion-button>
@@ -10,6 +13,6 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content  class="ion-padding">
+  <ion-content  class="ion-padding resultado-busqueda-servicio">
       <app-resultado-busqueda [arrayListaResultadoTrabajador]="arrayListaResultado"></app-resultado-busqueda>
   </ion-content>

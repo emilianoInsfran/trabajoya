@@ -1,6 +1,7 @@
 export interface Item {
     nombre: string,
     value: string,
+    disabled :boolean
 };
 
 export interface ObjResultadoBusqueda {
