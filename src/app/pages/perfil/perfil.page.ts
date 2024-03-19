@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbstractControl, FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import { DatosPerfilUsuario } from "../../services-shared/datos-perfil.service";
+import { AlertController, PopoverController   } from '@ionic/angular';
+import { WarningAlertComponent } from '../../component/warning-alert/warning-alert.component';
 
 @Component({
   selector: 'app-perfil',
@@ -24,7 +26,7 @@ export class PerfilPage implements OnInit {
   editSaveDisabledBtnPerfil:boolean = true;
   getDataPerfilServiceInitial:any;
 
-  constructor(private router: Router,private formBuilder: FormBuilder,public datosPerfilUsuario: DatosPerfilUsuario) {}
+  constructor(private router: Router,private formBuilder: FormBuilder,public datosPerfilUsuario: DatosPerfilUsuario, private alertController: AlertController, private popoverController: PopoverController) {}
 
   ngOnInit() {
     this.setPerfilEditado();
@@ -35,9 +37,6 @@ export class PerfilPage implements OnInit {
 
   valueChangesFormPerfil(){
     this.perfil.valueChanges.subscribe(changes => {
-      console.log('Se han detectado cambios en el formulario:', changes);
-      console.log('getDataPerfilServiceInitial:', this.getDataPerfilServiceInitial);
-      console.log('invalid:', this.perfil.invalid);
         if(JSON.stringify(this.getDataPerfilServiceInitial) !== JSON.stringify(this.perfil.value) && !this.perfil.invalid){
           console.log("El objeto es diferente!");
           this.editSaveDisabledBtnPerfil = false;
@@ -175,5 +174,39 @@ export class PerfilPage implements OnInit {
 
   setPerfilEditado() {
     this.datosPerfilUsuario.setEditarPerfil(false);
+  }
+
+  cancelarEditar() {
+    this.datosPerfilUsuario.setEditarPerfil(false);
+  }
+
+  async mostrarAlerta() {
+    if (!this.editSaveDisabledBtnPerfil) {
+      const alert = await this.alertController.create({
+        header: 'Confirmar',
+        message: `¿Estás seguro de que deseas cancelar la edición de Perfil?`,// y cambiar a ${tab} ->para agregar el nombre de la sección,
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: () => {
+              
+            }
+          }, {
+            text: 'Aceptar',
+            handler: () => {
+              this.cancelarEditar();
+            }
+          }
+        ],
+        cssClass: 'custom-alert'
+      });
+
+      await alert.present();
+    }else {
+      this.cancelarEditar();
+    } 
+  
   }
 }

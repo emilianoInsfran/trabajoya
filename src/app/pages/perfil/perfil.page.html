@@ -1,5 +1,10 @@
 <ion-header>
   <ion-toolbar> 
+    <ion-buttons slot="start" *ngIf="datosPerfilUsuario.getEditarPerfil()">
+      <ion-button (click)="mostrarAlerta()" icon-only clear>
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>{{datosPerfilUsuario.getEditarPerfil() ? "Editar Perfil" : "Perfil"}}</ion-title>
     <ion-buttons slot="end"  *ngIf="!datosPerfilUsuario.getEditarPerfil()">
       <ion-button (click)="editarPerfil()">
@@ -132,3 +137,4 @@
     </ion-button>
   </div>
 </ion-footer>
+
